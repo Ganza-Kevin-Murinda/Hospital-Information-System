@@ -31,6 +31,40 @@ This lab project includes:
 ---
 ## 🧩 ER Diagram
 ![img_1.png](img_1.png)
+
+---
+
+## 🧱 Design Pattern: MVC + DAO
+
+This application follows the MVC (Model-View-Controller) architecture with a DAO (Data Access Object) layer for persistence.
+
+- Model: Java classes representing entities (e.g., Patient, Employee).
+
+- DAO: Encapsulates database logic (e.g., PatientDAO, EmployeeDAO).
+
+- Controller: Handles user interactions and business logic (e.g., PatientController).
+
+- View: (Optional, depending on interface — CLI or GUI).
+
+---
+
+## 📁 Project Structure & Configuration
+
+### 🛠️ Environment Configuration
+This project uses **environment variables** for secure and flexible database configuration.
+- Environment variables are stored in a `.env` file (not committed to version control).
+- Managed to use the [`dotenv-java`](https://github.com/cdimascio/dotenv-java) library.
+- Example environment variables:
+```
+DB_URL=jdbc:postgresql://localhost:5432/your_database
+DB_USER=your_username
+DB_PASSWORD=your_password
+```
+
+```
+Dotenv dotenv = Dotenv.load();
+String url = dotenv.get("DB_URL");
+```
 ---
 
 ## ⚙️ Technologies Used
