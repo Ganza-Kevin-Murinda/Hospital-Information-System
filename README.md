@@ -99,7 +99,7 @@ Link
     DB/
     ├── hospital_information_system_scripts.sql
    ```
-3. Update DB credentials in the Java code
+3. Create an `.env` file to store the  DB credentials in Java
 4. Run the Java application to perform CRUD operations
 
 ---
