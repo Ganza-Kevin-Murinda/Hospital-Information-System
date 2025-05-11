@@ -30,7 +30,7 @@ This lab project includes:
 
 ---
 ## 🧩 ER Diagram
-![img_1.png](img_1.png)
+![img.png](img.png)
 
 ---
 
@@ -81,7 +81,7 @@ String url = dotenv.get("DB_URL");
 ## 📹 Video
 
 ```
-Link
+https://screenrec.com/share/CL4FEKiIrl
 ```
 
 ---
@@ -98,8 +98,9 @@ Link
     ```
     DB/
     ├── hospital_information_system_scripts.sql
+    ├── sample_data.sql
    ```
-3. Create an `.env` file to store the  DB credentials in Java
+3. Create an `.env` file to store the DB credentials in Java
 4. Run the Java application to perform CRUD operations
 
 ---
