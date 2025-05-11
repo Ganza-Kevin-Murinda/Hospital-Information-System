@@ -1,0 +1,97 @@
+/* Root application styling */
+.root {
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 12px;
+    -fx-background-color: #f5f5f5;
+}
+
+/* Title label styling */
+.title-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0d6efd;
+    -fx-padding: 5 0 5 0;
+}
+
+/* TableView styling */
+.table-view {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header {
+    -fx-background-color: #0d6efd;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-cell {
+    -fx-padding: 5px;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f9f9f9;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #0b5ed7; /* slightly darker for selected */
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: white;
+}
+
+/* Button styling */
+.button {
+    -fx-background-color: #0d6efd;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+}
+
+.button:hover {
+    -fx-background-color: #0b5ed7; /* darker on hover */
+}
+
+.button:pressed {
+    -fx-background-color: #0a58ca; /* pressed shade */
+}
+
+/* Text field styling */
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-padding: 5px;
+}
+
+.text-field:focused {
+    -fx-border-color: #0d6efd;
+    -fx-background-color: #fafafa;
+}
+
+/* TitledPane styling */
+.titled-pane {
+    -fx-text-fill: #0d6efd;
+}
+
+.titled-pane > .title {
+    -fx-background-color: #e8e8e8;
+    -fx-font-weight: bold;
+    -fx-padding: 5 10 5 10;
+}
+
+/* Label styling */
+.label {
+    -fx-text-fill: #333333;
+}
+
+/* Search box styling */
+#txtSearch {
+    -fx-prompt-text-fill: #999999;
+}

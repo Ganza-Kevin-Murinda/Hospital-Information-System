@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.his.hospitalinfosystem.controller.PatientController">
+    <children>
+        <VBox layoutX="14.0" layoutY="14.0" prefHeight="574.0" prefWidth="772.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <children>
+                <Label styleClass="title-label" text="Patient Management" />
+                <Separator />
+                <!-- Search Bar -->
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <children>
+                        <Label text="Search by Surname:" />
+                        <TextField fx:id="txtSearch" prefHeight="26.0" prefWidth="250.0" />
+                        <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#searchPatients" text="Search" />
+                        <Button mnemonicParsing="false" onAction="#loadPatients" text="Show All" />
+                    </children>
+                </HBox>
+
+                <!-- Table View for Patients -->
+                <TableView fx:id="patientTable" prefHeight="300.0" prefWidth="780.0">
+                    <columns>
+                        <TableColumn fx:id="colId" prefWidth="60.0" text="ID" />
+                        <TableColumn fx:id="colSurname" prefWidth="100.0" text="Surname" />
+                        <TableColumn fx:id="colFirstName" prefWidth="100.0" text="First Name" />
+                        <TableColumn fx:id="colAddress" prefWidth="210.0" text="Address" />
+                        <TableColumn fx:id="colTelephone" prefWidth="110.0" text="Telephone" />
+                        <TableColumn fx:id="colCreatedAt" prefWidth="180.0" text="Created At" />
+                    </columns>
+                </TableView>
+
+                <!-- Form for Patient Details -->
+                <TitledPane animated="false" collapsible="false" text="Patient Details">
+                    <content>
+                        <GridPane hgap="10.0" vgap="10.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label text="ID:" />
+                                <TextField fx:id="txtId" editable="false" GridPane.columnIndex="1" />
+                                <Label text="Surname:" GridPane.rowIndex="1" />
+                                <TextField fx:id="txtSurname" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Label text="First Name:" GridPane.rowIndex="2" />
+                                <TextField fx:id="txtFirstName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <Label text="Address:" GridPane.rowIndex="3" />
+                                <TextField fx:id="txtAddress" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                <Label text="Telephone:" GridPane.rowIndex="4" />
+                                <TextField fx:id="txtTelephone" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                            </children>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                        </GridPane>
+                    </content>
+                </TitledPane>
+
+                <!-- Action Buttons -->
+                <HBox alignment="CENTER" spacing="15.0">
+                    <children>
+                        <Button fx:id="btnSave" mnemonicParsing="false" onAction="#savePatient" prefHeight="30.0" prefWidth="100.0" text="Save" />
+                        <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#updatePatient" prefHeight="30.0" prefWidth="100.0" text="Update" />
+                        <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#deletePatient" prefHeight="30.0" prefWidth="100.0" text="Delete" />
+                        <Button fx:id="btnClear" mnemonicParsing="false" onAction="#clearForm" prefHeight="30.0" prefWidth="100.0" text="Clear" />
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                    </padding>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
