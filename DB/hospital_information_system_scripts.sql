@@ -47,6 +47,7 @@ ALTER TABLE
     "department" ADD PRIMARY KEY("department_code");
 
 CREATE TABLE "ward"(
+                       "ward_id" BIGINT NOT NULL,
                        "ward_nr" BIGINT NOT NULL,
                        "nr_of_beds" INTEGER NOT NULL,
                        "department_id" BIGINT NOT NULL,
@@ -55,7 +56,7 @@ CREATE TABLE "ward"(
 );
 
 ALTER TABLE
-    "ward" ADD PRIMARY KEY("ward_nr");
+    "ward" ADD PRIMARY KEY("ward_id");
 
 CREATE TABLE "patient"(
                           "patient_id" BIGINT NOT NULL,
@@ -81,7 +82,7 @@ CREATE TABLE "hospitalization"(
                                   "diagnosis" VARCHAR(255) NOT NULL,
                                   "description" VARCHAR(255) NOT NULL,
                                   "admission_date" TIMESTAMP NOT NULL,
-                                  "discharge_date" TIMESTAMP NOT NULL
+                                  "discharge_date" TIMESTAMP NULL
 );
 
 ALTER TABLE
@@ -98,6 +99,16 @@ CREATE TABLE "transfer"(
 
 ALTER TABLE
     "transfer" ADD PRIMARY KEY("transfer_id");
+
+-- Relationship : Creating Foreign keys
+
+-- enforce uniqueness within the department
+ALTER TABLE
+    "ward" ADD CONSTRAINT unique_ward_nr_per_department UNIQUE ("ward_nr", "department_id");
+
+-- enforce the amount of bed within a ward
+ALTER TABLE
+    "ward" ADD CONSTRAINT chk_nr_of_beds_range CHECK ("nr_of_beds" BETWEEN 0 AND 5);
 
 ALTER TABLE
     "ward" ADD CONSTRAINT "ward_department_id_foreign" FOREIGN KEY("department_id") REFERENCES "department"("department_code");
@@ -124,7 +135,7 @@ ALTER TABLE
     "transfer" ADD CONSTRAINT "transfer_from_hospitalization_id_foreign" FOREIGN KEY("from_hospitalization_id") REFERENCES "hospitalization"("hospitalization_id");
 
 ALTER TABLE
-    "hospitalization" ADD CONSTRAINT "hospitalization_ward_id_foreign" FOREIGN KEY("ward_id") REFERENCES "ward"("ward_nr");
+    "hospitalization" ADD CONSTRAINT "hospitalization_ward_id_foreign" FOREIGN KEY ("ward_id") REFERENCES "ward"("ward_id");
 
 ALTER TABLE
     "ward" ADD CONSTRAINT "ward_supervisor_id_foreign" FOREIGN KEY("supervisor_id") REFERENCES "nurse"("nurse_id");
@@ -134,3 +145,4 @@ ALTER TABLE
 
 ALTER TABLE
     "department" ADD CONSTRAINT "department_director_id_foreign" FOREIGN KEY("director_id") REFERENCES "doctor"("doctor_id");
+
